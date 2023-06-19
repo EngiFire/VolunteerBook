@@ -29,10 +29,8 @@
         android:onClick="onClickUserRequestExit"
         android:scaleType="centerInside"
         android:soundEffectsEnabled="false"
-        app:layout_constraintBottom_toBottomOf="@+id/text_header"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/text_header"
-        app:layout_constraintVertical_bias="1.0"
+        app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icon_arrow_left_solid" />
 
     <TextView

@@ -55,6 +55,13 @@
     <string name="app_request_toggle2">Заявки на\nмероприятия</string>
     <string name="app_request_user">Данные пользователя</string>
     <string name="app_request_user_create">Добавить пользователя</string>
+    <string name="app_request_event">Заявки</string>
+    <string name="app_request_event_name">Название\nмероприятия</string>
+    <string name="app_request_event_direction">Направление</string>
+    <string name="app_request_event_data">Дата</string>
+    <string name="app_request_event_quantity">Количество\nучастников</string>
+    <string name="app_request_event_description">Описание</string>
+    <string name="app_request_event_participant">Люди подавшие\nзаявку</string>
 
     <!--user_data-->
     <string name="app_user_data_name">Имя</string>

@@ -51,7 +51,7 @@ public class RequestActivity extends AppCompatActivity {
         init();
 
         getEventDataFromDB();
-        //
+        setOnClickItem();
 
         getUserDataFromDB();
         setOnClickUserItem();
@@ -127,24 +127,24 @@ public class RequestActivity extends AppCompatActivity {
         eDataBase.addValueEventListener(vListener);
     }
 
-//    private void setOnClickItem(){
-//        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-//            @Override
-//            public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
-//                Event event = listTemp.get(position);
-//                Intent i = new Intent(OrganizerActivity.this, ShowOrganizerActivity.class);
-//                i.putExtra(Constant.EVENT_NAME, event.name);
-//                i.putExtra(Constant.EVENT_ID, event.id);
-//                i.putExtra(Constant.EVENT_DIRECTION, event.direction);
-//                i.putExtra(Constant.EVENT_QUANTITY, event.quantity);
-//                i.putExtra(Constant.EVENT_DATA, event.data);
-//                i.putExtra(Constant.EVENT_PLACE, event.place);
-//                i.putExtra(Constant.EVENT_RESPONSIBLE, event.responsible);
-//                i.putExtra(Constant.EVENT_DESCRIPTION, event.description);
-//                startActivity(i);
-//            }
-//        });
-//    }
+    private void setOnClickItem(){
+        lvEvent.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick (AdapterView < ? > parent, View view,int position, long id){
+                Event event = listEventTemp.get(position);
+                Intent i = new Intent(RequestActivity.this, EventRequestActivity.class);
+                i.putExtra(Constant.EVENT_NAME, event.name);
+                i.putExtra(Constant.EVENT_ID, event.id);
+                i.putExtra(Constant.EVENT_DIRECTION, event.direction);
+                i.putExtra(Constant.EVENT_QUANTITY, event.quantity);
+                i.putExtra(Constant.EVENT_DATA, event.data);
+                i.putExtra(Constant.EVENT_PLACE, event.place);
+                i.putExtra(Constant.EVENT_RESPONSIBLE, event.responsible);
+                i.putExtra(Constant.EVENT_DESCRIPTION, event.description);
+                startActivity(i);
+            }
+        });
+    }
 
     private void getUserDataFromDB(){
         ValueEventListener vListener = new ValueEventListener(){
