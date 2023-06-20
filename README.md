@@ -84,20 +84,23 @@
 На данной странице вожатый просмотреть и выбраться для последующего редактирования любое из своих мероприятий. Так же он может создать мероприятие нажав на кнопку «Создать мероприятие».
 6.1	Организатор
   	
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/6ffcdc1e-8be7-4505-ac5a-37cec882abe7)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/5d6d6384-41d3-4c9b-8ab3-5902a16c1283)
 
 
 6.2	Управление мероприятием
 
- ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/ecff0f7e-0abf-49d5-8511-dc66f003262c)
+ ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/d61293bb-72d1-4587-a8da-7e77674ae4b1)
+
 
 6.3	Редактирование мероприятия
 
- ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/12c05d4c-e868-4ac8-b5ca-dc66cc48d83c)
+ ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/7a5b0ff5-a97b-43db-9e73-1d37a53c2c85)
+
 
 6.4	Создание мероприятия
 
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/e5b6b6e5-78e5-45b3-8373-25ae4b18de62)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/7db5e2dc-e660-4b92-b003-f7a1d98a6055)
+
 
 7.	Заявки
 На данном экране вожатый может выбрав св помощью кнопок «Новые
@@ -105,31 +108,36 @@
 7.1	Заявки (Новые участники)
 В данном вложении вожатому предоставляется список заявок на одобрение регистрации от пользователей. Выбрав любое из заявок, волонтёр переходит на страницу «Новый волонтёр» (7.1.1)
 
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/9ec7c7c3-5385-4cf3-9837-a2ce6330a4b8)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/9dc24675-855e-42f9-a10d-dd9de54e532e)
+
 
 7.1.1	Новый волонтёр
 На данный странице вожатый получает информацию о пользователе, которую тот вводил при регистрации. После чего он принимает решение об одобрении профиля или в отказе в регистрации.
 
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/059bb728-e5b7-476f-861e-f9f23aa9da74)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/137802ba-2761-4d76-9cf1-a9398bead758)
+
 
 7.2	Заявки (Заявки на мероприятия)
 
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/cd5f7a33-4047-4f98-8346-4b6ef36864f6)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/0cb14c34-80ee-4281-91ca-3e2cbaab3447)
+
 
 7.2.1	В данном вложении вожатому предоставляется список заявок на одобрение участие волонтёров в выбранном ими мероприятии. Выбрав любое из заявок, волонтёр переходит на страницу «Заявки волонтёров».
 
- ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/504811f9-745c-4be6-9418-66054f8f1a9b)
+ ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/b7c0d4b3-a203-4999-978a-755feaabe21c)
+
 
 
 7.2.2	Заявки волонтёров
 На данный странице вожатый получает информацию о мероприятии и список волонтёров, которые подали заявки на участи в нём. Выбрав любое из заявок, волонтёр переходит на страницу «Заявки волонтёров» с возможность одобрения или отказе в заявке на участие.
 
- ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/eeaa9d5b-efad-4761-8dd3-dc904c3b9427)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/f9477b3f-a1c8-4d17-83d6-cb9ae0ed4530)
+
 
 7.2.2.1	«Заявки волонтёров»
 На данный странице вожатый видит информацию о конкретном волонтёре, подавшем заявку на участие в мероприятии и принимает решение об одобрении или отказе в заявке на участие волонтёра в мероприятии.
 
- ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/49dc44da-35b7-4f14-8348-f7deea7b5750)
+ ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/c957d56a-1c0d-493c-ae6d-478413a6ba8a)
 
 
 
