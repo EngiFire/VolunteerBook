@@ -54,7 +54,7 @@
 
 3.1 Личный кабинет волонтёра
 
- ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/564d75c1-0143-4eaf-a3d5-193a76097542)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/30f4f3cf-9775-45a2-9f85-04bd1db691cd)
 
 3.2 Личный кабинет вожатого
 В версии «Профиля» для волонтёра в нижней панели присутствуют четыре кнопки. Кнопка ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/8a3d5378-2cf2-4d70-84f9-022a7800d85e)
