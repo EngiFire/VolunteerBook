@@ -114,30 +114,36 @@
 7.1.1	Новый волонтёр
 На данный странице вожатый получает информацию о пользователе, которую тот вводил при регистрации. После чего он принимает решение об одобрении профиля или в отказе в регистрации.
 
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/137802ba-2761-4d76-9cf1-a9398bead758)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/2b07e1c2-fba8-41ab-b9a5-e5fa90a93de1)
+
+
 
 
 7.2	Заявки (Заявки на мероприятия)
 
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/0cb14c34-80ee-4281-91ca-3e2cbaab3447)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/ea4f1424-2629-4863-9e8c-6f7b3fddc1f2)
+
 
 
 7.2.1	В данном вложении вожатому предоставляется список заявок на одобрение участие волонтёров в выбранном ими мероприятии. Выбрав любое из заявок, волонтёр переходит на страницу «Заявки волонтёров».
 
- ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/b7c0d4b3-a203-4999-978a-755feaabe21c)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/b60fa98a-0da1-45ff-9d9e-fc95b12807fd)
+
 
 
 
 7.2.2	Заявки волонтёров
 На данный странице вожатый получает информацию о мероприятии и список волонтёров, которые подали заявки на участи в нём. Выбрав любое из заявок, волонтёр переходит на страницу «Заявки волонтёров» с возможность одобрения или отказе в заявке на участие.
 
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/f9477b3f-a1c8-4d17-83d6-cb9ae0ed4530)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/22ae21aa-6cd9-43da-a20b-89ac0e042a0e)
+
 
 
 7.2.2.1	«Заявки волонтёров»
 На данный странице вожатый видит информацию о конкретном волонтёре, подавшем заявку на участие в мероприятии и принимает решение об одобрении или отказе в заявке на участие волонтёра в мероприятии.
 
- ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/c957d56a-1c0d-493c-ae6d-478413a6ba8a)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/87671b90-232e-4495-86f9-964845154826)
+
 
 
 
