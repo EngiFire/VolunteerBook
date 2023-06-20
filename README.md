@@ -73,33 +73,38 @@
 ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/7a57fe7c-20c5-4186-a135-7ec2208b8899)
 ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/29fcca18-fe60-49f7-92f7-9ed0ce9fcb8f)
 
-6.	Список мероприятий
+5.	Список мероприятий
 В данной вкладке вы можете видеть все мероприятия, на которые пользователь может подать заявку. По каждому мероприятию даётся краткая сводка включаэщая в себя: название, дату проведени и направление мероприятия. Нажав на любое мероприятие пользователь переходит на страницу, где расписана вся информация о выбранном мероприятии с возможностью записанться на него.
 
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/9614512b-ea66-448e-a45d-c58e0c7ecef9)
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/2a152489-35ae-4667-a6f3-b9028771d851)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/7b1bd51d-ca53-49ea-90a4-8a9c1aa95f51)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/00bb40db-b5d9-402b-bc9f-b10bb364cc54)
+
 
 
 6.	Организатор
 На данной странице вожатый просмотреть и выбраться для последующего редактирования любое из своих мероприятий. Так же он может создать мероприятие нажав на кнопку «Создать мероприятие».
 6.1	Организатор
   	
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/5d6d6384-41d3-4c9b-8ab3-5902a16c1283)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/7f0f4679-46cf-439c-9536-7172b461bebe)
+
 
 
 6.2	Управление мероприятием
 
- ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/d61293bb-72d1-4587-a8da-7e77674ae4b1)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/24621d39-fc5e-4742-ba07-09236bdd913e)
+
 
 
 6.3	Редактирование мероприятия
 
- ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/7a5b0ff5-a97b-43db-9e73-1d37a53c2c85)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/b1ac5dec-d02d-478e-8a7a-90a0258df48c)
+
 
 
 6.4	Создание мероприятия
 
-![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/7db5e2dc-e660-4b92-b003-f7a1d98a6055)
+![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/279ed426-3dbd-42c7-9417-4cce57876951)
+
 
 
 7.	Заявки
