@@ -10,11 +10,11 @@
         android:id="@+id/text_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4CAF50"
+        android:background="@color/green"
         android:padding="5sp"
         android:text="@string/app_request"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -68,7 +68,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutEventCounselor"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="#4CAF50"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -76,8 +76,8 @@
 
         <ImageButton
             android:id="@+id/imageButton5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:backgroundTint="#00FFFFFF"
             android:onClick="onClickMain"
             android:scaleType="centerInside"
@@ -104,8 +104,8 @@
 
         <ImageButton
             android:id="@+id/imageButton6"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:backgroundTint="#00FFFFFF"
             android:onClick="onClickOrganizer"
             android:scaleType="centerInside"
@@ -114,13 +114,12 @@
             app:layout_constraintStart_toEndOf="@+id/imageButton8"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/icon_user_pen_solid"
-            tools:layout_editor_absoluteX="177dp" />
+            app:srcCompat="@drawable/icon_user_pen_solid" />
 
         <ImageButton
             android:id="@+id/imageButton7"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
             android:backgroundTint="#00FFFFFF"
             android:onClick="onClickRequest"
             android:scaleType="centerInside"
@@ -137,7 +136,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:visibility="gone"
         app:layout_constraintBottom_toTopOf="@+id/layoutEventCounselor"
         app:layout_constraintEnd_toEndOf="parent"
@@ -149,7 +147,6 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
-        android:layout_marginBottom="16dp"
         android:visibility="visible"
         app:layout_constraintBottom_toTopOf="@+id/layoutEventCounselor"
         app:layout_constraintEnd_toEndOf="parent"

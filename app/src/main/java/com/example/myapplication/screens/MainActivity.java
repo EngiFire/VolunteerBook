@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     imStatus.setImageResource(R.drawable.stone_diamond);
                 }
 
-                if(imageUrl.equals("")){
+                if(imageUrl == null){
                     imView.setImageResource(R.drawable.profile_close);
                 } else {
                     String photoUrl = dataSnapshot.child("imageUrl").getValue(String.class);
@@ -107,10 +107,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String post = dataSnapshot.child("post").getValue(String.class);
-
-
-                Toast.makeText(getApplicationContext(), post, Toast.LENGTH_SHORT).show();
-
 
                 if(post.equals("Вожатый")){
                     layoutStudent.setVisibility(View.GONE);

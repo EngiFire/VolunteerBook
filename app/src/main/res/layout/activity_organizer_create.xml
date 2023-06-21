@@ -14,7 +14,7 @@
         android:padding="9sp"
         android:text="@string/app_organizer_create"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -42,7 +42,7 @@
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/border_filled"
+        android:background="@drawable/border_empty"
         android:ems="10"
         android:hint="Название"
         android:inputType="text"
@@ -55,22 +55,22 @@
         android:id="@+id/edCrEventData"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border_filled"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_empty"
         android:ems="10"
         android:hint="Дата проведения"
         android:inputType="text"
         android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/spinner"
-        app:layout_constraintStart_toStartOf="@+id/spinner"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintEnd_toEndOf="@+id/spDirection"
+        app:layout_constraintStart_toStartOf="@+id/spDirection"
+        app:layout_constraintTop_toBottomOf="@+id/spDirection" />
 
     <EditText
         android:id="@+id/edCrEventPlace"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border_filled"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_empty"
         android:ems="10"
         android:hint="Место проведения"
         android:inputType="text"
@@ -83,8 +83,8 @@
         android:id="@+id/edCrEventQuantity"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border_filled"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_empty"
         android:ems="10"
         android:hint="Количество участников"
         android:inputType="numberSigned"
@@ -99,17 +99,18 @@
         android:layout_height="wrap_content"
         android:onClick="onClickCreateSave"
         android:text="Создать"
+        android:backgroundTint="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/scrollView3" />
 
     <Spinner
-        android:id="@+id/spinner"
+        android:id="@+id/spDirection"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border_filled"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_empty"
         app:layout_constraintEnd_toEndOf="@+id/edCrEventName"
         app:layout_constraintStart_toStartOf="@+id/edCrEventName"
         app:layout_constraintTop_toBottomOf="@+id/edCrEventName" />
@@ -118,12 +119,12 @@
         android:id="@+id/scrollView3"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border_filled"
-        android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/edCrEventQuantity"
-        app:layout_constraintStart_toStartOf="@+id/edCrEventQuantity"
-        app:layout_constraintTop_toBottomOf="@+id/edCrEventQuantity">
+        android:layout_marginTop="8dp"
+
+        app:layout_constraintEnd_toEndOf="@+id/spPoint"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/spPoint"
+        app:layout_constraintTop_toBottomOf="@+id/spPoint">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -137,8 +138,20 @@
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="Описание"
+                android:background="@drawable/border_empty"
+                android:padding="10dp"
                 android:inputType="textMultiLine" />
         </LinearLayout>
     </ScrollView>
+
+    <Spinner
+        android:id="@+id/spPoint"
+        android:layout_width="0dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_empty"
+        app:layout_constraintEnd_toEndOf="@+id/edCrEventQuantity"
+        app:layout_constraintStart_toStartOf="@+id/edCrEventQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/edCrEventQuantity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -33,7 +33,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutEventStudent"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="#4CAF50"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -41,21 +41,21 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/imageButton5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/ibEvProf"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:backgroundTint="#00FFFFFF"
             android:onClick="onClickMain"
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/imageButton8"
+            app:layout_constraintEnd_toStartOf="@+id/ibEvList"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/icon_house" />
 
         <ImageButton
-            android:id="@+id/imageButton8"
+            android:id="@+id/ibEvList"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:backgroundTint="#00FFFFFF"
@@ -63,7 +63,7 @@
             android:scaleType="centerInside"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@+id/imageButton5"
+            app:layout_constraintStart_toEndOf="@+id/ibEvProf"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
             app:srcCompat="@drawable/icon_clipboard_list_solid" />
@@ -73,7 +73,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/layoutEventCounselor"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:background="#4CAF50"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -82,8 +82,8 @@
 
         <ImageButton
             android:id="@+id/imageButton5"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:backgroundTint="#00FFFFFF"
             android:onClick="onClickMain"
             android:scaleType="centerInside"
@@ -110,8 +110,8 @@
 
         <ImageButton
             android:id="@+id/imageButton6"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
             android:backgroundTint="#00FFFFFF"
             android:onClick="onClickOrganizer"
             android:scaleType="centerInside"
@@ -120,13 +120,12 @@
             app:layout_constraintStart_toEndOf="@+id/imageButton8"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@drawable/icon_user_pen_solid"
-            tools:layout_editor_absoluteX="177dp" />
+            app:srcCompat="@drawable/icon_user_pen_solid" />
 
         <ImageButton
             android:id="@+id/imageButton7"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="57dp"
+            android:layout_height="57dp"
             android:backgroundTint="#00FFFFFF"
             android:onClick="onClickRequest"
             android:scaleType="centerInside"

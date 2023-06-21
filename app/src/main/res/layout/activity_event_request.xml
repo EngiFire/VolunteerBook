@@ -10,11 +10,11 @@
         android:id="@+id/text_header2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4CAF50"
+        android:background="@color/green"
         android:padding="9sp"
         android:text="@string/app_request_event"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -77,12 +77,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/app_request_event_participant"
+        android:text="@string/exp_request_event_participant"
         android:textAlignment="center"
+        android:textSize="16sp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEvDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView5" />
 
     <TextView
         android:id="@+id/tvEvName"
@@ -126,22 +127,10 @@
         android:id="@+id/textView16"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:text="@string/app_request_event_description"
-        app:layout_constraintBottom_toBottomOf="@+id/tvEvDescription"
         app:layout_constraintStart_toStartOf="@+id/textView18"
-        app:layout_constraintTop_toTopOf="@+id/tvEvDescription" />
-
-    <TextView
-        android:id="@+id/tvEvDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/border_filled"
-        android:padding="5dp"
-        android:text="TextView"
-        app:layout_constraintEnd_toEndOf="@+id/tvEvData"
-        app:layout_constraintStart_toStartOf="@+id/tvEvData"
-        app:layout_constraintTop_toBottomOf="@+id/tvEvQuantity" />
+        app:layout_constraintTop_toTopOf="@+id/scrollView5" />
 
     <TextView
         android:id="@+id/textView18"
@@ -169,11 +158,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
-        android:text="@string/app_request_event_uhello"
+        android:text="@string/exp_request_event_user"
+        android:textSize="16sp"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvEvDescription" />
+        app:layout_constraintTop_toBottomOf="@+id/scrollView5" />
 
     <CheckBox
         android:id="@+id/checkBox3"
@@ -258,7 +248,7 @@
         android:id="@+id/textVData"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_filled"
         android:padding="5dp"
         android:text="TextView"
@@ -271,7 +261,7 @@
         android:id="@+id/textVPost"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_filled"
         android:padding="5dp"
         android:text="TextView"
@@ -284,7 +274,7 @@
         android:id="@+id/textVEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_filled"
         android:padding="5dp"
         android:text="TextView"
@@ -292,5 +282,29 @@
         app:layout_constraintEnd_toEndOf="@+id/textVPost"
         app:layout_constraintStart_toStartOf="@+id/textVPost"
         app:layout_constraintTop_toBottomOf="@+id/textVPost" />
+
+    <ScrollView
+        android:id="@+id/scrollView5"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvEvQuantity"
+        app:layout_constraintStart_toStartOf="@+id/tvEvQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/tvEvQuantity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvEvDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_filled"
+                android:padding="5dp"
+                android:text="TextView" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -14,7 +14,7 @@
         android:padding="9sp"
         android:text="@string/app_show_organizer_event"
         android:textAlignment="center"
-        android:textColor="@android:color/black"
+        android:textColor="@color/white"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -37,10 +37,15 @@
 
     <TextView
         android:id="@+id/tvEventNameOrg"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:text="Text"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
@@ -54,6 +59,8 @@
         android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEventNameOrg" />
@@ -64,6 +71,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/tvEventDirectionOrg"
         app:layout_constraintStart_toStartOf="@+id/tvEventDirectionOrg"
         app:layout_constraintTop_toBottomOf="@+id/tvEventDirectionOrg" />
@@ -74,6 +83,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/tvEventDataOrg"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventDataOrg"
@@ -85,21 +96,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/tvEventResponsibleOrg"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventResponsibleOrg"
         app:layout_constraintTop_toBottomOf="@+id/tvEventResponsibleOrg" />
-
-    <TextView
-        android:id="@+id/tvEventDescriptionOrg"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Text"
-        app:layout_constraintEnd_toEndOf="@+id/tvEventQuantityOrg"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvEventQuantityOrg"
-        app:layout_constraintTop_toBottomOf="@+id/tvEventQuantityOrg" />
 
     <TextView
         android:id="@+id/tvEventResponsibleOrg"
@@ -107,10 +109,48 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/tvEventPlaceOrg"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventPlaceOrg"
         app:layout_constraintTop_toBottomOf="@+id/tvEventPlaceOrg" />
+
+    <CheckBox
+        android:id="@+id/cbComplete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:onClick="checkBoxCompleteEvent"
+        android:text="Завершить мероприятие"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
+
+    <ScrollView
+        android:id="@+id/scrollView4"
+        android:layout_width="0dp"
+        android:layout_height="150dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvEventQuantityOrg"
+        app:layout_constraintStart_toStartOf="@+id/tvEventQuantityOrg"
+        app:layout_constraintTop_toBottomOf="@+id/tvEventQuantityOrg">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvEventDescriptionOrg"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_filled"
+                android:padding="5dp"
+                android:text="Text" />
+        </LinearLayout>
+    </ScrollView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ShowEventActivity extends AppCompatActivity {
 
-    private TextView tvName, tvData, tvResponsible, tvQuantity, tvPlace, tvDirection, tvDescription;
+    private TextView tvName, tvData, tvResponsible, tvQuantity, tvPlace, tvDirection, tvDescription, tvEventPoint;
     private CheckBox checkBox;
     private DatabaseReference mDataBase;
 
@@ -45,6 +45,7 @@ public class ShowEventActivity extends AppCompatActivity {
         tvQuantity = findViewById(R.id.tvEventQuantity);
         tvPlace = findViewById(R.id.tvEventPlace);
         tvDescription = findViewById(R.id.tvEventDescription);
+        tvEventPoint = findViewById(R.id.tvEventPoint);
         checkBox = findViewById(R.id.checkBox);
         mDataBase = FirebaseDatabase.getInstance().getReference();
     }
@@ -54,10 +55,11 @@ public class ShowEventActivity extends AppCompatActivity {
         if(i != null){
             tvName.setText(i.getStringExtra(Constant.EVENT_NAME));
             tvData.setText("Дата проведения мероприятия:\n" + i.getStringExtra(Constant.EVENT_DATA));
-            tvQuantity.setText("Количество участников:\n" + i.getIntExtra(Constant.EVENT_QUANTITY, 0));
+            tvQuantity.setText("Количество участников:\n" + i.getIntExtra(Constant.EVENT_PARTICIPANT, 0) + "/" +i.getIntExtra(Constant.EVENT_QUANTITY, 0));
             tvPlace.setText("Место проведения мероприятия:\n" + i.getStringExtra(Constant.EVENT_PLACE));
             tvDirection.setText("Направление мероприятия:\n" + i.getStringExtra(Constant.EVENT_DIRECTION));
             tvDescription.setText("Описание мероприятия:\n" + i.getStringExtra(Constant.EVENT_DESCRIPTION));
+            tvEventPoint.setText("Баллы за мероприятие:\n" + i.getIntExtra(Constant.EVENT_POINT, 0));
 
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("User").child(i.getStringExtra(Constant.EVENT_RESPONSIBLE));
             ref.addValueEventListener(new ValueEventListener() {
@@ -81,7 +83,10 @@ public class ShowEventActivity extends AppCompatActivity {
         super.onStart();
         Intent i = getIntent();
         String eventId = i.getStringExtra(Constant.EVENT_ID);
+        Integer eventPart = i.getIntExtra(Constant.EVENT_PARTICIPANT, 0);
+        Integer eventQuan = i.getIntExtra(Constant.EVENT_QUANTITY, 0);
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
         Query query = reference.child("ApplicationEvent").child(eventId).orderByChild("userId").equalTo(uid);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
@@ -91,13 +96,13 @@ public class ShowEventActivity extends AppCompatActivity {
                     //username found
                     checkBox.setClickable(false);
                     checkBox.setChecked(true);
-                }else{
-                    // username not found
+                } else if (eventPart.equals(eventQuan)) {
+                    checkBox.setClickable(false);
+                    checkBox.setChecked(false);
                 }
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-
             }
         });
     }

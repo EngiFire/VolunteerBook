@@ -67,9 +67,11 @@ public class EventActivity extends AppCompatActivity {
                 for(DataSnapshot ds : dataSnapshot.getChildren()){
                     Event event = ds.getValue(Event.class);
                     assert event != null;
-                    listData.add(event.name);
-                    //Log.d("listTemp", event.toString());
-                    listTemp.add(event);
+                    if(event.participant != event.quantity){
+                        listData.add(event.name);
+                        //Log.d("listTemp", event.toString());
+                        listTemp.add(event);
+                    }
                 }
                 adapter.notifyDataSetChanged();
             }
@@ -93,10 +95,6 @@ public class EventActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String post = dataSnapshot.child("post").getValue(String.class);
 
-
-                Toast.makeText(getApplicationContext(), post, Toast.LENGTH_SHORT).show();
-
-
                 if(post.equals("Вожатый")){
                     layoutEventStudent.setVisibility(View.GONE);
 
@@ -118,10 +116,12 @@ public class EventActivity extends AppCompatActivity {
                 i.putExtra(Constant.EVENT_ID, event.id);
                 i.putExtra(Constant.EVENT_DIRECTION, event.direction);
                 i.putExtra(Constant.EVENT_QUANTITY, event.quantity);
+                i.putExtra(Constant.EVENT_PARTICIPANT, event.participant);
                 i.putExtra(Constant.EVENT_DATA, event.data);
                 i.putExtra(Constant.EVENT_PLACE, event.place);
                 i.putExtra(Constant.EVENT_RESPONSIBLE, event.responsible);
                 i.putExtra(Constant.EVENT_DESCRIPTION, event.description);
+                i.putExtra(Constant.EVENT_POINT, event.point);
                 startActivity(i);
             }
         });

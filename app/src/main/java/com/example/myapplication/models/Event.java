@@ -4,18 +4,19 @@ import androidx.annotation.NonNull;
 
 public class Event {
     public String id, name, direction, data, responsible, place, description;
-    public Integer quantity;
+    public Integer quantity, participant, point;
 
-    public Event(String id, String name, String direction, String data, String responsible, String place, String description, Integer quantity) {
+    public Event(String id, String name, String direction, String data, String responsible, String place, String description, Integer quantity, Integer participant, Integer point) {
         this.id = id;
         this.name = name;
         this.direction = direction;
         this.data = data;
         this.responsible = responsible;
         this.place = place;
-        this.quantity = quantity;
         this.description = description;
-
+        this.quantity = quantity;
+        this.participant = participant;
+        this.point = point;
     }
 
     @Override

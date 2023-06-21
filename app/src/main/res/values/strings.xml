@@ -13,6 +13,9 @@
 
     <!--explanation-->
     <string name="exp_greeting">Вы вошли как:</string>
+    <string name="exp_organizer_list">Мои мероприятия:</string>
+    <string name="exp_request_event_participant">Люди подавшие заявку</string>
+    <string name="exp_request_event_user">Профиль волонтёра</string>
 
     <!--close-->
     <string name="close">Здесь что-то</string>
@@ -84,6 +87,16 @@
     <string-array name="post">
         <item>Студент</item>
         <item>Вожатый</item>
+    </string-array>
+
+    <!--point-->
+    <string-array name="point">
+        <item>10</item>
+        <item>15</item>
+        <item>20</item>
+        <item>25</item>
+        <item>30</item>
+        <item>35</item>
     </string-array>
 
 </resources>

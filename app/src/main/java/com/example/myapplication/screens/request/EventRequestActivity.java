@@ -32,8 +32,9 @@ public class EventRequestActivity extends AppCompatActivity {
     private ArrayAdapter<String> adapter;
     private List<String> listData;
     private List<ApplicationEvent> listTemp;
-    private DatabaseReference mDataBase, database;
+    private DatabaseReference mDataBase, aeDataBase, pDataBase;
     private String userId;
+    private Integer nowPart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,7 +48,7 @@ public class EventRequestActivity extends AppCompatActivity {
         setOnClickItem();
     }
 
-    private void init(){
+    private void init() {
         tvEvName = findViewById(R.id.tvEvName);
         tvEvDirection = findViewById(R.id.tvEvDirection);
         tvEvData = findViewById(R.id.tvEvData);
@@ -78,28 +79,29 @@ public class EventRequestActivity extends AppCompatActivity {
         mDataBase = FirebaseDatabase.getInstance().getReference("ApplicationEvent").child(eventName);
     }
 
-    private void getIntentMain(){
+    private void getIntentMain() {
         Intent i = getIntent();
-        if(i != null){
+        if (i != null) {
             tvEvName.setText(i.getStringExtra(Constant.EVENT_NAME));
             tvEvDirection.setText(i.getStringExtra(Constant.EVENT_DIRECTION));
             tvEvData.setText(i.getStringExtra(Constant.EVENT_DATA));
-            tvEvQuantity.setText("" + i.getIntExtra(Constant.EVENT_QUANTITY, 0));
+            tvEvQuantity.setText(i.getIntExtra(Constant.EVENT_PARTICIPANT, 0) + "/" + i.getIntExtra(Constant.EVENT_QUANTITY, 0));
             tvEvDescription.setText(i.getStringExtra(Constant.EVENT_DESCRIPTION));
+            nowPart = i.getIntExtra(Constant.EVENT_PARTICIPANT, 0);
         }
     }
 
-    private void getDataFromDB(){
-        ValueEventListener vListener = new ValueEventListener(){
+    private void getDataFromDB() {
+        ValueEventListener vListener = new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                if(listData.size() > 0)listData.clear();
-                if(listTemp.size() > 0)listTemp.clear();
+                if (listData.size() > 0) listData.clear();
+                if (listTemp.size() > 0) listTemp.clear();
 
-                for(DataSnapshot ds : dataSnapshot.getChildren()){
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
                     ApplicationEvent apEvent = ds.getValue(ApplicationEvent.class);
                     assert apEvent != null;
-                    if (apEvent.status.equals("На рассмотрении")){
+                    if (apEvent.status.equals("На рассмотрении")) {
                         listData.add(apEvent.userSecName + " " + apEvent.userName);
                         //Log.d("listTemp", event.toString());
                         listTemp.add(apEvent);
@@ -116,10 +118,10 @@ public class EventRequestActivity extends AppCompatActivity {
         mDataBase.addValueEventListener(vListener);
     }
 
-    private void setOnClickItem(){
+    private void setOnClickItem() {
         lvParticipant.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onItemClick (AdapterView < ? > parent, View view, int position, long id){
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 ApplicationEvent apEvent = listTemp.get(position);
 
                 userId = apEvent.userId;
@@ -141,52 +143,71 @@ public class EventRequestActivity extends AppCompatActivity {
                         textVPost.setText(post);
                         textVEmail.setText(email);
                     }
+
                     @Override
-                    public void onCancelled(@NonNull DatabaseError databaseError) {}
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
                 });
             }
         });
     }
 
-    public void onClickCheckAdd(View view){
-        if(checkBox3.isChecked()){
+    public void onClickCheckAdd(View view) {
+        if (checkBox3.isChecked()) {
+
+            Intent i = getIntent();
+            String eventId = i.getStringExtra(Constant.EVENT_ID);
+            Integer evQuantity = i.getIntExtra(Constant.EVENT_QUANTITY, 0);
+
+            nowPart = nowPart + 1;
+
+            aeDataBase = FirebaseDatabase.getInstance().getReference().child("ApplicationEvent").child(eventId).child(userId).child("status");
+            aeDataBase.setValue("Одобрена");
+
+            pDataBase = FirebaseDatabase.getInstance().getReference().child("Event").child(eventId).child("participant");
+            pDataBase.setValue(nowPart);
+
+            tvEvQuantity.setText(nowPart+ "/" + evQuantity);
+
+            if (evQuantity.equals(nowPart)) {
+                Toast.makeText(getApplicationContext(), "Группа укомплектована", Toast.LENGTH_SHORT).show();
+
+                Intent intent = new Intent(EventRequestActivity.this, RequestActivity.class);
+                startActivity(intent);
+                finish();
+            } else{
+                Toast.makeText(getApplicationContext(), "Сохранено", Toast.LENGTH_SHORT).show();
+
+                notSigned();
+                checkBox3.setChecked(false);
+            }
+        }
+    }
+
+    public void onClickCheckCanceled(View view) {
+        if (checkBox3.isChecked()) {
             checkBox3.setClickable(false);
 
             Intent i = getIntent();
             String eventId = i.getStringExtra(Constant.EVENT_ID);
 
-            database = FirebaseDatabase.getInstance().getReference().child("ApplicationEvent").child(eventId).child(userId).child("status");
-            database.setValue("Одобрена");
+            aeDataBase = FirebaseDatabase.getInstance().getReference().child("ApplicationEvent").child(eventId).child(userId).child("status");
+            aeDataBase.setValue("Отменена");
 
             Toast.makeText(getApplicationContext(), "Сохранено", Toast.LENGTH_SHORT).show();
 
             notSigned();
+            checkBox3.setChecked(false);
         }
     }
 
-    public void onClickCheckCanceled(View view){
-        if(checkBox3.isChecked()){
-            checkBox3.setClickable(false);
-
-            Intent i = getIntent();
-            String eventId = i.getStringExtra(Constant.EVENT_ID);
-
-            database = FirebaseDatabase.getInstance().getReference().child("ApplicationEvent").child(eventId).child(userId).child("status");
-            database.setValue("Отменена");
-
-            Toast.makeText(getApplicationContext(), "Сохранено", Toast.LENGTH_SHORT).show();
-
-            notSigned();
-        }
-    }
-
-    public void onClickEventRequestExit(View view){
+    public void onClickEventRequestExit(View view) {
         Intent intent = new Intent(this, RequestActivity.class);
         startActivity(intent);
         finish();
     }
 
-    private void showSigned(){
+    private void showSigned() {
         lvParticipant.setVisibility(View.GONE);
         textView11.setVisibility(View.GONE);
 
@@ -203,7 +224,7 @@ public class EventRequestActivity extends AppCompatActivity {
         textVEmail.setVisibility(View.VISIBLE);
     }
 
-    private void notSigned(){
+    private void notSigned() {
         lvParticipant.setVisibility(View.VISIBLE);
         textView11.setVisibility(View.VISIBLE);
 

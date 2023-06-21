@@ -11,6 +11,8 @@ public class Constant {
     public final static String EVENT_PLACE = "event_place";
     public final static String EVENT_RESPONSIBLE = "event_responsible";
     public final static String EVENT_DESCRIPTION = "event_description";
+    public final static String EVENT_PARTICIPANT = "event_participant";
+    public final static String EVENT_POINT = "event_point";
 
     //User_const
     public final static String USER_ID = "user_id";

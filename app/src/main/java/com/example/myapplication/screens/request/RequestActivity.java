@@ -109,9 +109,11 @@ public class RequestActivity extends AppCompatActivity {
                     Event event = ds.getValue(Event.class);
                     assert event != null;
                     if(event.responsible.equals(uid)){
-                        listEventData.add(event.name);
-                        //Log.d("listTemp", event.toString());
-                        listEventTemp.add(event);
+                        if (event.quantity.equals(event.participant) != true){
+                            listEventData.add(event.name);
+                            //Log.d("listTemp", event.toString());
+                            listEventTemp.add(event);
+                        }
                     }
                 }
                 eventAdapter.notifyDataSetChanged();
@@ -135,6 +137,7 @@ public class RequestActivity extends AppCompatActivity {
                 i.putExtra(Constant.EVENT_ID, event.id);
                 i.putExtra(Constant.EVENT_DIRECTION, event.direction);
                 i.putExtra(Constant.EVENT_QUANTITY, event.quantity);
+                i.putExtra(Constant.EVENT_PARTICIPANT, event.participant);
                 i.putExtra(Constant.EVENT_DATA, event.data);
                 i.putExtra(Constant.EVENT_PLACE, event.place);
                 i.putExtra(Constant.EVENT_RESPONSIBLE, event.responsible);

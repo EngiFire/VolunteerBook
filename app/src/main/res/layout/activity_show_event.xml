@@ -38,11 +38,14 @@
 
     <TextView
         android:id="@+id/tvEventName"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
         android:text="Text"
-        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -54,11 +57,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="48dp"
+        android:layout_marginTop="32dp"
         android:layout_marginEnd="32dp"
-        android:text="Text"
         android:background="@drawable/border_filled"
         android:padding="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEventName" />
@@ -68,9 +71,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Text"
         android:background="@drawable/border_filled"
         android:padding="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="@+id/tvEventDirection"
         app:layout_constraintStart_toStartOf="@+id/tvEventDirection"
         app:layout_constraintTop_toBottomOf="@+id/tvEventDirection" />
@@ -80,9 +83,9 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Text"
         android:background="@drawable/border_filled"
         android:padding="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="@+id/tvEventData"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventData"
@@ -93,35 +96,22 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Text"
         android:background="@drawable/border_filled"
         android:padding="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="@+id/tvEventResponsible"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventResponsible"
-        app:layout_constraintTop_toBottomOf="@+id/tvEventResponsible" />
-
-    <TextView
-        android:id="@+id/tvEventDescription"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Text"
-        android:background="@drawable/border_filled"
-        android:padding="5dp"
-        app:layout_constraintEnd_toEndOf="@+id/tvEventQuantity"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/tvEventQuantity"
-        app:layout_constraintTop_toBottomOf="@+id/tvEventQuantity" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEventPoint" />
 
     <TextView
         android:id="@+id/tvEventResponsible"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
-        android:text="Text"
         android:background="@drawable/border_filled"
         android:padding="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="@+id/tvEventPlace"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventPlace"
@@ -138,5 +128,42 @@
         android:text="Записаться на мероприятие"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView2" />
+
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="0dp"
+        android:layout_height="130dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/tvEventQuantity"
+        app:layout_constraintStart_toStartOf="@+id/tvEventQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/tvEventQuantity">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tvEventDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@drawable/border_filled"
+                android:padding="5dp"
+                android:text="Text" />
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvEventPoint"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
+        android:text="Text"
+        app:layout_constraintEnd_toEndOf="@+id/tvEventResponsible"
+        app:layout_constraintStart_toStartOf="@+id/tvEventResponsible"
+        app:layout_constraintTop_toBottomOf="@+id/tvEventResponsible" />
 </androidx.constraintlayout.widget.ConstraintLayout>

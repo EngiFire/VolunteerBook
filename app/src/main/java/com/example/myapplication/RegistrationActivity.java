@@ -58,7 +58,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                        User newUser = new User(id, name, sec_name, data, email, password, "Студент", 0, false, "");
+                        User newUser = new User(id, name, sec_name, data, email, password, "Студент", 0, false, null);
 
                         mDataBase.child(id).setValue(newUser);
 
