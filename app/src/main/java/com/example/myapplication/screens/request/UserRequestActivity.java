@@ -1,4 +1,4 @@
-package com.example.myapplication.screens;
+package com.example.myapplication.screens.request;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,10 +14,8 @@ import android.widget.Toast;
 
 import com.example.myapplication.Constant;
 import com.example.myapplication.R;
-import com.example.myapplication.models.ApplicationEvent;
 import com.example.myapplication.models.User;
-import com.example.myapplication.screens.organizer.OrganizerActivity;
-import com.google.firebase.auth.FirebaseAuth;
+import com.example.myapplication.screens.request.RequestActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -80,9 +78,10 @@ public class UserRequestActivity extends AppCompatActivity {
             String usPassword = i.getStringExtra(Constant.USER_PASSWORD);
             String usEmail = i.getStringExtra(Constant.USER_EMAIL);
             String usData = i.getStringExtra(Constant.USER_DATA);
+            String imageUrl = i.getStringExtra(Constant.USER_IMAGE_URL);
             String usPost = spUsPost.getSelectedItem().toString();
 
-            User newUser = new User(usId, usName, usSecName, usData, usEmail, usPassword, usPost, 0, true);
+            User newUser = new User(usId, usName, usSecName, usData, usEmail, usPassword, usPost, 0, true, imageUrl);
 
             mDataBase.child("User").child(usId).setValue(newUser);
 

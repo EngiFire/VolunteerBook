@@ -6,17 +6,49 @@
     android:layout_height="match_parent"
     tools:context=".RegistrationActivity">
 
+    <TextView
+        android:id="@+id/text_header"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/green"
+        android:padding="5sp"
+        android:text="@string/app_registration"
+        android:textSize="32sp"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/green"
+        android:hapticFeedbackEnabled="false"
+        android:onClick="onClickRegExit"
+        android:scaleType="centerInside"
+        android:soundEffectsEnabled="false"
+        app:layout_constraintBottom_toBottomOf="@+id/text_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_header"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/icon_arrow_left_solid" />
+
+
     <EditText
         android:id="@+id/edName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="128dp"
+        android:layout_marginTop="64dp"
         android:ems="10"
         android:hint="Имя"
         android:inputType="text"
+        android:background="@drawable/border_empty"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/text_header" />
 
     <EditText
         android:id="@+id/edSecName"
@@ -26,6 +58,8 @@
         android:ems="10"
         android:hint="Фамилия"
         android:inputType="text"
+        android:background="@drawable/border_empty"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="@+id/edName"
         app:layout_constraintStart_toStartOf="@+id/edName"
         app:layout_constraintTop_toBottomOf="@+id/edName" />
@@ -38,6 +72,8 @@
         android:ems="10"
         android:hint="Дата рождения"
         android:inputType="text"
+        android:background="@drawable/border_empty"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="@+id/edSecName"
         app:layout_constraintStart_toStartOf="@+id/edSecName"
         app:layout_constraintTop_toBottomOf="@+id/edSecName" />
@@ -50,21 +86,11 @@
         android:ems="10"
         android:hint="Почта"
         android:inputType="text"
+        android:background="@drawable/border_empty"
+        android:padding="10dp"
         app:layout_constraintEnd_toEndOf="@+id/edData"
         app:layout_constraintStart_toStartOf="@+id/edData"
         app:layout_constraintTop_toBottomOf="@+id/edData" />
-
-    <EditText
-        android:id="@+id/edPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:ems="10"
-        android:hint="Пароль"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="@+id/edEmail"
-        app:layout_constraintStart_toStartOf="@+id/edEmail"
-        app:layout_constraintTop_toBottomOf="@+id/edEmail" />
 
     <Button
         android:id="@+id/button"
@@ -72,6 +98,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="100dp"
+        android:backgroundTint="@color/red"
         android:onClick="onClickSave"
         android:text="Зарегестрироваться"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -79,13 +106,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/edPassword" />
 
-    <Button
-        android:id="@+id/button18"
+    <EditText
+        android:id="@+id/edPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
         android:layout_marginTop="16dp"
-        android:onClick="onClickRegExit"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:background="@drawable/border_empty"
+        android:ems="10"
+        android:hint="Пароль"
+        android:inputType="textPassword"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="@+id/edEmail"
+        app:layout_constraintStart_toStartOf="@+id/edEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edEmail" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

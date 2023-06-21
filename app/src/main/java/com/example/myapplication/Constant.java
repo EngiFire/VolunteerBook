@@ -13,13 +13,14 @@ public class Constant {
     public final static String EVENT_DESCRIPTION = "event_description";
 
     //User_const
-    public final static String USER_ID = "event_id";
-    public final static String USER_NAME = "event_name";
-    public final static String USER_SEC_NAME = "event_sec_name";
-    public final static String USER_PASSWORD = "event_password";
-    public final static String USER_EMAIL = "event_email";
-    public final static String USER_DATA = "event_data";
-    public final static String USER_POST = "event_post";
-    public final static String USER_BOOK = "event_book";
-    public final static String USER_POINT = "event_point";
+    public final static String USER_ID = "user_id";
+    public final static String USER_NAME = "user_name";
+    public final static String USER_SEC_NAME = "user_sec_name";
+    public final static String USER_PASSWORD = "user_password";
+    public final static String USER_EMAIL = "user_email";
+    public final static String USER_DATA = "user_data";
+    public final static String USER_POST = "user_post";
+    public final static String USER_BOOK = "user_book";
+    public final static String USER_POINT = "user_point";
+    public final static String USER_IMAGE_URL = "user_image_url";
 }

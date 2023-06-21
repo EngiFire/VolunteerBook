@@ -15,6 +15,7 @@ import com.example.myapplication.LoginActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.screens.event.EventActivity;
 import com.example.myapplication.screens.organizer.OrganizerActivity;
+import com.example.myapplication.screens.request.RequestActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -30,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     private TextView tvName, tvSecName, tvPoint, tvPointClass;
 
-    private ImageView imView;
+    private ImageView imView, imStatus;
     private ConstraintLayout layoutStudent, layoutCounselor;
 
     @Override
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         layoutCounselor = findViewById(R.id.layoutCounselor);
 
         imView = findViewById(R.id.imView);
+        imStatus = findViewById(R.id.imStatus);
 
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String uid = user.getUid();
@@ -55,30 +57,40 @@ public class MainActivity extends AppCompatActivity {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String name = dataSnapshot.child("name").getValue(String.class);
                 String secName = dataSnapshot.child("secName").getValue(String.class);
+                String imageUrl = dataSnapshot.child("imageUrl").getValue(String.class);
                 Integer point = dataSnapshot.child("point").getValue(Integer.class);
-
-                tvName.setText(name);
-                tvSecName.setText(secName);
-                tvPoint.setText(String.valueOf(point));
 
                 if(point > 1000){
                     point = 1000;
                 }
 
+                tvName.setText(name);
+                tvSecName.setText(secName);
+                tvPoint.setText("Баллы: " + String.valueOf(point));
+
                 if(point <= 201){
-                    tvPointClass.setText("Медный");
-                } else if (point <= 401) {
                     tvPointClass.setText("Бронзовый");
-                } else if (point <= 601) {
+                    imStatus.setImageResource(R.drawable.star_bronze);
+                } else if (point <= 401) {
                     tvPointClass.setText("Серебряный");
-                } else if (point <= 801) {
+                    imStatus.setImageResource(R.drawable.star_silver);
+                } else if (point <= 601) {
                     tvPointClass.setText("Золотой");
+                    imStatus.setImageResource(R.drawable.star_gold);
+                } else if (point <= 801) {
+                    tvPointClass.setText("Рубиновый");
+                    imStatus.setImageResource(R.drawable.stone_ruby);
                 } else if (point <= 1000) {
                     tvPointClass.setText("Бриллиантовый");
+                    imStatus.setImageResource(R.drawable.stone_diamond);
                 }
 
-                String photoUrl = dataSnapshot.child("imageUrl").getValue(String.class);
-                Glide.with(MainActivity.this).load(photoUrl).into(imView);
+                if(imageUrl.equals("")){
+                    imView.setImageResource(R.drawable.profile_close);
+                } else {
+                    String photoUrl = dataSnapshot.child("imageUrl").getValue(String.class);
+                    Glide.with(MainActivity.this).load(photoUrl).into(imView);
+                }
             }
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {}

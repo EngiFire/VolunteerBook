@@ -1,35 +1,28 @@
 <resources>
 
+    <string name="app_name">Volunteer Book</string>
+
     <!--header-->
+    <string name="app_login">Добро пожаловать!</string>
     <string name="app_profile">Профиль</string>
-    <string name="app_list_of_events">Список мероприятий</string>
+    <string name="app_event">Список мероприятий</string>
+    <string name="app_event_show">О мероприятии</string>
     <string name="app_organizer">Организатор</string>
-    <string name="app_event_report">Отчёт о мероприятии</string>
+    <string name="app_request">Заявки</string>
+    <string name="app_registration">Регистрация</string>
+
+    <!--explanation-->
+    <string name="exp_greeting">Вы вошли как:</string>
+
+    <!--close-->
+    <string name="close">Здесь что-то</string>
 
     <!--login_account-->
     <string name="app_enter">Войти</string>
     <string name="app_register">Зарегистрироваться</string>
     <string name="app_email">Почта</string>
     <string name="app_password">Пароль</string>
-
-
-    <!--activity_main-->
-
-    <string name="app_name">Volonter</string>
-    <string name="app_header">Профиль</string>
-    <string name="app_full_name">Зубенко Михаил Петрович</string>
-
-    <string name="app_status_class">Бриллиантовый</string>
     <string name="app_status_info">Статус волонтёра</string>
-
-
-    <string name="app_main_scores">Баллы волонтёра</string>
-    <string name="app_main_scores_number">1000</string>
-    <string name="app_main_planned">Запланированных мероприятий</string>
-    <string name="app_main_planned_number">3</string>
-    <string name="app_main_completed">Количество пройденных мероприятий</string>
-    <string name="app_main_completed_number">15</string>
-
 
     <!--registration_for_the_event-->
     <string name="app_check_events_1">Мероприятие</string>
@@ -44,24 +37,29 @@
     <!--my_events_list-->
     <string name="app_my_events_list">Мои события</string>
 
-
     <!--my_events-->
     <string name="app_my_events_1">Мероприятие</string>
     <string name="app_my_events_2">№2724788</string>
 
     <!--request-->
-    <string name="app_request">Заявки</string>
     <string name="app_request_toggle1">Новые\nучастники</string>
     <string name="app_request_toggle2">Заявки на\nмероприятия</string>
     <string name="app_request_user">Данные пользователя</string>
     <string name="app_request_user_create">Добавить пользователя</string>
-    <string name="app_request_event">Заявки</string>
+    <string name="app_request_event">Заявки волонтёров</string>
     <string name="app_request_event_name">Название\nмероприятия</string>
     <string name="app_request_event_direction">Направление</string>
-    <string name="app_request_event_data">Дата</string>
+    <string name="app_request_event_data">Дата/время</string>
     <string name="app_request_event_quantity">Количество\nучастников</string>
     <string name="app_request_event_description">Описание</string>
     <string name="app_request_event_participant">Люди подавшие\nзаявку</string>
+    <string name="app_request_event_uhello">Профиль волонтёра</string>
+    <string name="app_request_event_usname">Фамилия/Имя</string>
+    <string name="app_request_event_udata">Дата рождения</string>
+    <string name="app_request_event_upost">Должность</string>
+    <string name="app_request_event_uemail">Почта</string>
+    <string name="app_request_event_ucheck1">Принять заявку</string>
+    <string name="app_request_event_ucheck2">Отказать в заявке</string>
 
     <!--user_data-->
     <string name="app_user_data_name">Имя</string>

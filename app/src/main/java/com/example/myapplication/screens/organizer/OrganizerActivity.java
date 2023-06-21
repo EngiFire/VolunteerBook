@@ -14,7 +14,7 @@ import com.example.myapplication.Constant;
 import com.example.myapplication.R;
 import com.example.myapplication.models.Event;
 import com.example.myapplication.screens.MainActivity;
-import com.example.myapplication.screens.RequestActivity;
+import com.example.myapplication.screens.request.RequestActivity;
 import com.example.myapplication.screens.event.EventActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;

@@ -10,20 +10,12 @@
         android:id="@+id/text_header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#4CAF50"
+        android:background="@color/green"
         android:padding="5sp"
+        android:text="@string/app_login"
         android:textSize="32sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/tvGreetings"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="120dp"
-        android:text="Войдите в свою\nучётную запись!"
-        android:visibility="visible"
+        android:textAlignment="center"
+        android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -32,94 +24,131 @@
         android:id="@+id/edLogEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
+        android:background="@drawable/border_filled"
         android:ems="10"
         android:hint="Почта"
         android:inputType="text"
+        android:padding="10dp"
         android:visibility="visible"
-        app:layout_constraintBottom_toTopOf="@+id/edLogPassword"
-        app:layout_constraintEnd_toEndOf="@+id/edLogPassword"
-        app:layout_constraintStart_toStartOf="@+id/edLogPassword" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appIcon" />
 
     <Button
         android:id="@+id/bSignIn"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="100dp"
-        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/red"
         android:onClick="onClickSignIn"
         android:text="Войти"
         android:visibility="visible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edLogPassword" />
+        app:layout_constraintBottom_toTopOf="@+id/bReg"
+        app:layout_constraintEnd_toEndOf="@+id/bReg"
+        app:layout_constraintStart_toStartOf="@+id/bReg" />
 
     <Button
         android:id="@+id/bReg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginEnd="100dp"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="@color/red"
         android:onClick="onClickSignUp"
         android:text="Зарегистрироваться"
         android:visibility="visible"
-        app:layout_constraintEnd_toEndOf="@+id/bSignIn"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/bSignIn"
-        app:layout_constraintTop_toBottomOf="@+id/bSignIn" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/tvUserEmail"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="176dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="64dp"
         android:text="TextView"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
         android:visibility="gone"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/tvGreeting" />
 
     <Button
         android:id="@+id/bStart"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="64dp"
-        android:layout_marginTop="140dp"
         android:layout_marginEnd="64dp"
+        android:layout_marginBottom="32dp"
+        android:backgroundTint="@color/red"
         android:onClick="onClickStart"
         android:text="Войти"
         android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/bExit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvUserEmail" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/bExit"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_marginBottom="64dp"
+        android:backgroundTint="@color/red"
         android:onClick="onClickExitLog"
         android:text="Выйти из аккаунта"
         android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/bStart"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="@+id/bStart"
-        app:layout_constraintTop_toBottomOf="@+id/bStart" />
+        app:layout_constraintStart_toStartOf="@+id/bStart" />
 
     <EditText
         android:id="@+id/edLogPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="64dp"
-        android:layout_marginEnd="64dp"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/border_filled"
         android:ems="10"
         android:hint="Пароль"
         android:inputType="textPassword"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:padding="10dp"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="@+id/edLogEmail"
+        app:layout_constraintStart_toStartOf="@+id/edLogEmail"
+        app:layout_constraintTop_toBottomOf="@+id/edLogEmail" />
+
+    <ImageView
+        android:id="@+id/appIcon"
+        android:layout_width="140dp"
+        android:layout_height="140dp"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_header" />
+        app:layout_constraintTop_toBottomOf="@+id/text_header"
+        app:srcCompat="@drawable/app_icon" />
+
+    <TextView
+        android:id="@+id/tvGreeting"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="@string/exp_greeting"
+        android:textSize="20sp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appIcon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

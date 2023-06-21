@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import com.example.myapplication.Constant;
 import com.example.myapplication.screens.MainActivity;
-import com.example.myapplication.screens.RequestActivity;
+import com.example.myapplication.screens.request.RequestActivity;
 import com.example.myapplication.screens.organizer.OrganizerActivity;
 import com.example.myapplication.R;
 import com.example.myapplication.models.Event;

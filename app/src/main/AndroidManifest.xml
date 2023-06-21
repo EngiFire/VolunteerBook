@@ -13,15 +13,15 @@
         android:theme="@style/Theme.MyApplication"
         tools:targetApi="31">
         <activity
-            android:name=".screens.EventRequestActivity"
+            android:name=".screens.request.EventRequestActivity"
             android:exported="false"
             android:screenOrientation="portrait"/>
         <activity
-            android:name=".screens.UserRequestActivity"
+            android:name=".screens.request.UserRequestActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
-            android:name=".screens.RequestActivity"
+            android:name=".screens.request.RequestActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -49,6 +49,7 @@
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
+            android:theme="@style/Base.Theme.MyApplication"
             android:name=".LoginActivity"
             android:exported="true"
             android:screenOrientation="portrait">

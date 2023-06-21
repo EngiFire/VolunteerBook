@@ -52,19 +52,19 @@ public class RegistrationActivity extends AppCompatActivity {
         String password = edPassword.getText().toString();
 
 
-        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(sec_name) && !TextUtils.isEmpty(email)) {
+        if (!TextUtils.isEmpty(name) && !TextUtils.isEmpty(sec_name) && !TextUtils.isEmpty(email) && !TextUtils.isEmpty(data) && !TextUtils.isEmpty(password)) {
             mAuth.createUserWithEmailAndPassword(edEmail.getText().toString(), edPassword.getText().toString()).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                 @Override
                 public void onComplete(@NonNull Task<AuthResult> task) {
                     if (task.isSuccessful()) {
                         String id = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                        User newUser = new User(id, name, sec_name, data, email, password, "Студент", 0, false);
+                        User newUser = new User(id, name, sec_name, data, email, password, "Студент", 0, false, "");
 
                         mDataBase.child(id).setValue(newUser);
 
                         Toast.makeText(getApplicationContext(), "Сохранено", Toast.LENGTH_SHORT).show();
 
-                        Intent intent = new Intent(RegistrationActivity.this, MainActivity.class);
+                        Intent intent = new Intent(RegistrationActivity.this, LoginActivity.class);
                         startActivity(intent);
                         finish();
                     } else {

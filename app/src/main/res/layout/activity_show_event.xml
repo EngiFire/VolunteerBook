@@ -6,16 +6,35 @@
     android:layout_height="match_parent"
     tools:context=".screens.event.ShowEventActivity">
 
-    <Button
-        android:id="@+id/button17"
-        android:layout_width="wrap_content"
+    <TextView
+        android:id="@+id/text_header"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="16dp"
-        android:onClick="onClickReturn"
-        android:text="Назад"
+        android:background="@color/green"
+        android:padding="5sp"
+        android:text="@string/app_event_show"
+        android:textAlignment="center"
+        android:textColor="@color/white"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/imageButton4"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:backgroundTint="@color/green"
+        android:hapticFeedbackEnabled="false"
+        android:onClick="onClickReturn"
+        android:scaleType="centerInside"
+        android:soundEffectsEnabled="false"
+        app:layout_constraintBottom_toBottomOf="@+id/text_header"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/text_header"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/icon_arrow_left_solid" />
+
 
     <TextView
         android:id="@+id/tvEventName"
@@ -23,10 +42,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="48dp"
         android:text="Text"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/text_header" />
 
     <TextView
         android:id="@+id/tvEventDirection"
@@ -36,6 +57,8 @@
         android:layout_marginTop="48dp"
         android:layout_marginEnd="32dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEventName" />
@@ -46,6 +69,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/tvEventDirection"
         app:layout_constraintStart_toStartOf="@+id/tvEventDirection"
         app:layout_constraintTop_toBottomOf="@+id/tvEventDirection" />
@@ -56,6 +81,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/tvEventData"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventData"
@@ -67,6 +94,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/tvEventResponsible"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventResponsible"
@@ -78,6 +107,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/tvEventQuantity"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventQuantity"
@@ -89,20 +120,12 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:text="Text"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
         app:layout_constraintEnd_toEndOf="@+id/tvEventPlace"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventPlace"
         app:layout_constraintTop_toBottomOf="@+id/tvEventPlace" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Просмотр мероприятия"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/button17"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <CheckBox
         android:id="@+id/checkBox"

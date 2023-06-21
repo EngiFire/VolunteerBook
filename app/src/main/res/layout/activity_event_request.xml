@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".screens.EventRequestActivity">
+    tools:context=".screens.request.EventRequestActivity">
 
     <TextView
         android:id="@+id/text_header2"
@@ -26,7 +26,7 @@
         android:layout_height="50dp"
         android:backgroundTint="#00FFFFFF"
         android:hapticFeedbackEnabled="false"
-        android:onClick="onClickUserRequestExit"
+        android:onClick="onClickEventRequestExit"
         android:scaleType="centerInside"
         android:soundEffectsEnabled="false"
         app:layout_constraintStart_toStartOf="parent"
@@ -66,6 +66,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginTop="16dp"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -78,6 +79,7 @@
         android:layout_marginTop="32dp"
         android:text="@string/app_request_event_participant"
         android:textAlignment="center"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEvDescription" />
@@ -89,7 +91,7 @@
         android:layout_marginStart="150dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:background="@drawable/border"
+        android:background="@drawable/border_filled"
         android:padding="5dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="parent"
@@ -101,7 +103,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/border"
+        android:background="@drawable/border_filled"
         android:padding="5dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/tvEvName"
@@ -113,7 +115,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/border"
+        android:background="@drawable/border_filled"
         android:padding="5dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/tvEvDirection"
@@ -134,7 +136,7 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/border"
+        android:background="@drawable/border_filled"
         android:padding="5dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/tvEvData"
@@ -155,11 +157,140 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
-        android:background="@drawable/border"
+        android:background="@drawable/border_filled"
         android:padding="5dp"
         android:text="TextView"
         app:layout_constraintEnd_toEndOf="@+id/tvEvData"
         app:layout_constraintStart_toStartOf="@+id/tvEvData"
         app:layout_constraintTop_toBottomOf="@+id/tvEvData" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/app_request_event_uhello"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvEvDescription" />
+
+    <CheckBox
+        android:id="@+id/checkBox3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="onClickCheckAdd"
+        android:text="@string/app_request_event_ucheck1"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/checkBox4"
+        app:layout_constraintEnd_toEndOf="@+id/checkBox4"
+        app:layout_constraintStart_toStartOf="@+id/checkBox4" />
+
+    <CheckBox
+        android:id="@+id/checkBox4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="16dp"
+        android:onClick="onClickCheckCanceled"
+        android:text="@string/app_request_event_ucheck2"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="@string/app_request_event_usname"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textVUser"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/textVUser" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_request_event_udata"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textVData"
+        app:layout_constraintStart_toStartOf="@+id/textView14"
+        app:layout_constraintTop_toTopOf="@+id/textVData" />
+
+    <TextView
+        android:id="@+id/textView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_request_event_upost"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textVPost"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toTopOf="@+id/textVPost" />
+
+    <TextView
+        android:id="@+id/textView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/app_request_event_uemail"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/textVEmail"
+        app:layout_constraintStart_toStartOf="@+id/textView17"
+        app:layout_constraintTop_toTopOf="@+id/textVEmail" />
+
+    <TextView
+        android:id="@+id/textVUser"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView13" />
+
+    <TextView
+        android:id="@+id/textVData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/textVUser"
+        app:layout_constraintStart_toStartOf="@+id/textVUser"
+        app:layout_constraintTop_toBottomOf="@+id/textVUser" />
+
+    <TextView
+        android:id="@+id/textVPost"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/textVData"
+        app:layout_constraintStart_toStartOf="@+id/textVData"
+        app:layout_constraintTop_toBottomOf="@+id/textVData" />
+
+    <TextView
+        android:id="@+id/textVEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/textVPost"
+        app:layout_constraintStart_toStartOf="@+id/textVPost"
+        app:layout_constraintTop_toBottomOf="@+id/textVPost" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.myapplication.screens;
+package com.example.myapplication.screens.request;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -15,13 +15,11 @@ import android.widget.Toast;
 
 import com.example.myapplication.Constant;
 import com.example.myapplication.R;
-import com.example.myapplication.models.ApplicationEvent;
 import com.example.myapplication.models.Event;
 import com.example.myapplication.models.User;
+import com.example.myapplication.screens.MainActivity;
 import com.example.myapplication.screens.event.EventActivity;
 import com.example.myapplication.screens.organizer.OrganizerActivity;
-import com.example.myapplication.screens.organizer.OrganizerCreateActivity;
-import com.example.myapplication.screens.organizer.ShowOrganizerActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -157,7 +155,7 @@ public class RequestActivity extends AppCompatActivity {
 
                     User user = ds.getValue(User.class);
                     assert user != null;
-                    listUserData.add(user.name);
+                    listUserData.add(user.secName + " " + user.name);
                     //Log.d("listTemp", event.toString());
                     listUserTemp.add(user);
                 }

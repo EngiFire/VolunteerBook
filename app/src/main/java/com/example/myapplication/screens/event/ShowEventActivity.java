@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.myapplication.Constant;
 import com.example.myapplication.R;
 import com.example.myapplication.models.ApplicationEvent;
+import com.example.myapplication.models.User;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -82,7 +83,7 @@ public class ShowEventActivity extends AppCompatActivity {
         String eventId = i.getStringExtra(Constant.EVENT_ID);
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
         DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-        Query query = reference.child("ApplicationEvent").child(eventId).orderByChild("userName").equalTo(uid);
+        Query query = reference.child("ApplicationEvent").child(eventId).orderByChild("userId").equalTo(uid);
         query.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
@@ -109,11 +110,22 @@ public class ShowEventActivity extends AppCompatActivity {
             String eventName = i.getStringExtra(Constant.EVENT_NAME);
             String eventId = i.getStringExtra(Constant.EVENT_ID);
             String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-            ApplicationEvent newAppEvent = new ApplicationEvent(eventId, eventName, uid);
 
-            mDataBase.child("ApplicationEvent").child(eventId).child(uid).setValue(newAppEvent);
+            mDataBase.child("User").child(uid).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    String uName = dataSnapshot.child("name").getValue(String.class);
+                    String uSecName = dataSnapshot.child("secName").getValue(String.class);
 
-            Toast.makeText(getApplicationContext(), "Сохранено", Toast.LENGTH_SHORT).show();
+                    ApplicationEvent newAppEvent = new ApplicationEvent(eventId, eventName, uid, uName, uSecName, "На рассмотрении");
+                    mDataBase.child("ApplicationEvent").child(eventId).child(uid).setValue(newAppEvent);mDataBase.child("ApplicationEvent").child(eventId).child(uid).setValue(newAppEvent);
+
+                    Toast.makeText(getApplicationContext(), "Сохранено", Toast.LENGTH_SHORT).show();
+                }
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
         }
     }
 
