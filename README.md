@@ -57,12 +57,7 @@
 ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/30f4f3cf-9775-45a2-9f85-04bd1db691cd)
 
 3.2 Личный кабинет вожатого
-В версии «Профиля» для волонтёра в нижней панели присутствуют четыре кнопки. Кнопка ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/8a3d5378-2cf2-4d70-84f9-022a7800d85e)
- возвращая на страницу пользователя. Кнопка ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/28b2b958-a2f0-48e2-9faf-16d23b0f69a0)
- отправляет пользователя на страницу «Список мероприятий». Кнопка ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/fffc5188-ff5c-42b8-b9c5-05e63f4064ad)
- переводит на страницу «Организатор». Кнопка ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/454b0b08-9041-49ec-b878-eeca51c54f7f)
- переводит на страницу «Заявки».
- 
+
  ![image](https://github.com/EngiFire/VolunteerBook/assets/107999830/7a912aae-2888-428d-9c4c-6c1fb513fcc1)
 
 
