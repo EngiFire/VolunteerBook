@@ -56,11 +56,11 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="32dp"
-        android:text="Text"
         android:background="@drawable/border_filled"
         android:padding="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvEventNameOrg" />
@@ -69,10 +69,10 @@
         android:id="@+id/tvEventDataOrg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Text"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_filled"
         android:padding="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="@+id/tvEventDirectionOrg"
         app:layout_constraintStart_toStartOf="@+id/tvEventDirectionOrg"
         app:layout_constraintTop_toBottomOf="@+id/tvEventDirectionOrg" />
@@ -81,10 +81,10 @@
         android:id="@+id/tvEventPlaceOrg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Text"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_filled"
         android:padding="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="@+id/tvEventDataOrg"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventDataOrg"
@@ -94,10 +94,10 @@
         android:id="@+id/tvEventQuantityOrg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Text"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_filled"
         android:padding="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="@+id/tvEventResponsibleOrg"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventResponsibleOrg"
@@ -107,10 +107,10 @@
         android:id="@+id/tvEventResponsibleOrg"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="Text"
+        android:layout_marginTop="8dp"
         android:background="@drawable/border_filled"
         android:padding="5dp"
+        android:text="Text"
         app:layout_constraintEnd_toEndOf="@+id/tvEventPlaceOrg"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventPlaceOrg"
@@ -120,19 +120,18 @@
         android:id="@+id/cbComplete"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
         android:onClick="checkBoxCompleteEvent"
         android:text="Завершить мероприятие"
+        android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ScrollView
         android:id="@+id/scrollView4"
         android:layout_width="0dp"
-        android:layout_height="150dp"
-        android:layout_marginTop="16dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="@+id/tvEventQuantityOrg"
         app:layout_constraintStart_toStartOf="@+id/tvEventQuantityOrg"
         app:layout_constraintTop_toBottomOf="@+id/tvEventQuantityOrg">
@@ -151,6 +150,119 @@
                 android:text="Text" />
         </LinearLayout>
     </ScrollView>
+
+    <ListView
+        android:id="@+id/lvParticipant"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="visible"
+        app:layout_constraintBottom_toTopOf="@+id/cbComplete"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView4"
+        app:layout_constraintStart_toStartOf="@+id/scrollView4"
+        app:layout_constraintTop_toBottomOf="@+id/tvExpOrgComp" />
+
+    <TextView
+        android:id="@+id/tvExpOrgComp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Оцените работу участников:"
+        android:visibility="visible"
+        app:layout_constraintStart_toStartOf="@+id/scrollView4"
+        app:layout_constraintTop_toBottomOf="@+id/scrollView4" />
+
+    <TextView
+        android:id="@+id/expUsName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Фамилия/Имя"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPartName"
+        app:layout_constraintStart_toStartOf="@+id/scrollView4"
+        app:layout_constraintTop_toTopOf="@+id/tvPartName" />
+
+    <TextView
+        android:id="@+id/expUsEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Почта"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPartEmail"
+        app:layout_constraintStart_toStartOf="@+id/expUsName"
+        app:layout_constraintTop_toTopOf="@+id/tvPartEmail" />
+
+    <TextView
+        android:id="@+id/expUsData"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Дата рождения"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tvPartData"
+        app:layout_constraintStart_toStartOf="@+id/expUsEmail"
+        app:layout_constraintTop_toTopOf="@+id/tvPartData" />
+
+    <CheckBox
+        android:id="@+id/chbAddPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="chBoxAddPoint"
+        android:text="Начислить баллы"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Spinner
+        android:id="@+id/spAddPoint"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/border_empty"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/tvExpOrgComp"
+        app:layout_constraintEnd_toEndOf="@+id/scrollView4"
+        app:layout_constraintStart_toEndOf="@+id/tvExpOrgComp"
+        app:layout_constraintTop_toTopOf="@+id/tvExpOrgComp" />
+
+    <TextView
+        android:id="@+id/tvPartName"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvExpOrgComp" />
+
+    <TextView
+        android:id="@+id/tvPartEmail"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/tvPartName"
+        app:layout_constraintStart_toStartOf="@+id/tvPartName"
+        app:layout_constraintTop_toBottomOf="@+id/tvPartName" />
+
+    <TextView
+        android:id="@+id/tvPartData"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@drawable/border_filled"
+        android:padding="5dp"
+        android:text="TextView"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="@+id/tvPartEmail"
+        app:layout_constraintStart_toStartOf="@+id/tvPartEmail"
+        app:layout_constraintTop_toBottomOf="@+id/tvPartEmail" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

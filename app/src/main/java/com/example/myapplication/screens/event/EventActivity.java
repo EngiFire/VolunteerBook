@@ -121,7 +121,6 @@ public class EventActivity extends AppCompatActivity {
                 i.putExtra(Constant.EVENT_PLACE, event.place);
                 i.putExtra(Constant.EVENT_RESPONSIBLE, event.responsible);
                 i.putExtra(Constant.EVENT_DESCRIPTION, event.description);
-                i.putExtra(Constant.EVENT_POINT, event.point);
                 startActivity(i);
             }
         });

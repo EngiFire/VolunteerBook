@@ -20,7 +20,7 @@ public class OrganizerCreateActivity extends AppCompatActivity {
 
     private EditText edName, edData, edPlace, edDescription, edQuantity;
     private DatabaseReference mDataBase;
-    private Spinner spDirection, spPoint;
+    private Spinner spDirection;
 
 
     @Override
@@ -35,13 +35,6 @@ public class OrganizerCreateActivity extends AppCompatActivity {
         adDirection.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         spDirection.setAdapter(adDirection);
-
-        ArrayAdapter<?> adPoint =
-                ArrayAdapter.createFromResource(this, R.array.point,
-                        android.R.layout.simple_spinner_item);
-        adPoint.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        spPoint.setAdapter(adPoint);
     }
 
     private void init(){
@@ -52,16 +45,11 @@ public class OrganizerCreateActivity extends AppCompatActivity {
         edQuantity = findViewById(R.id.edCrEventQuantity);
         mDataBase = FirebaseDatabase.getInstance().getReference();
         spDirection = findViewById(R.id.spDirection);
-        spPoint = findViewById(R.id.spPoint);
     }
 
     public void onClickCreateSave(View view){
 
         String direction = spDirection.getSelectedItem().toString();
-
-        int spinner_pos = spPoint.getSelectedItemPosition();
-        String[] size_values = getResources().getStringArray(R.array.point);
-        int point = Integer.valueOf(size_values[spinner_pos]);
 
         String name = edName.getText().toString();
         String place = edPlace.getText().toString();
@@ -72,7 +60,7 @@ public class OrganizerCreateActivity extends AppCompatActivity {
 
         String id = mDataBase.child("Event").push().getKey();
         String responsible = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        Event newEvent = new Event(id, name, direction, data, responsible, place, description, quantity, 0, point);
+        Event newEvent = new Event(id, name, direction, data, responsible, place, description, quantity, 0);
 
         mDataBase.child("Event").child(id).setValue(newEvent);
 

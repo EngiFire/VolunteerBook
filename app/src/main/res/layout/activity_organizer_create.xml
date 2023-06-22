@@ -55,7 +55,7 @@
         android:id="@+id/edCrEventData"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/border_empty"
         android:ems="10"
         android:hint="Дата проведения"
@@ -69,7 +69,7 @@
         android:id="@+id/edCrEventPlace"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/border_empty"
         android:ems="10"
         android:hint="Место проведения"
@@ -83,7 +83,7 @@
         android:id="@+id/edCrEventQuantity"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/border_empty"
         android:ems="10"
         android:hint="Количество участников"
@@ -109,7 +109,7 @@
         android:id="@+id/spDirection"
         android:layout_width="0dp"
         android:layout_height="45dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/border_empty"
         app:layout_constraintEnd_toEndOf="@+id/edCrEventName"
         app:layout_constraintStart_toStartOf="@+id/edCrEventName"
@@ -119,12 +119,11 @@
         android:id="@+id/scrollView3"
         android:layout_width="0dp"
         android:layout_height="150dp"
-        android:layout_marginTop="8dp"
 
-        app:layout_constraintEnd_toEndOf="@+id/spPoint"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/spPoint"
-        app:layout_constraintTop_toBottomOf="@+id/spPoint">
+        android:layout_marginTop="16dp"
+        app:layout_constraintEnd_toEndOf="@+id/edCrEventQuantity"
+        app:layout_constraintStart_toStartOf="@+id/edCrEventQuantity"
+        app:layout_constraintTop_toBottomOf="@+id/edCrEventQuantity">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -135,23 +134,13 @@
                 android:id="@+id/edCrEventDescription"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@drawable/border_empty"
                 android:ems="10"
                 android:gravity="start|top"
                 android:hint="Описание"
-                android:background="@drawable/border_empty"
-                android:padding="10dp"
-                android:inputType="textMultiLine" />
+                android:inputType="textMultiLine"
+                android:padding="10dp" />
         </LinearLayout>
     </ScrollView>
-
-    <Spinner
-        android:id="@+id/spPoint"
-        android:layout_width="0dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="8dp"
-        android:background="@drawable/border_empty"
-        app:layout_constraintEnd_toEndOf="@+id/edCrEventQuantity"
-        app:layout_constraintStart_toStartOf="@+id/edCrEventQuantity"
-        app:layout_constraintTop_toBottomOf="@+id/edCrEventQuantity" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

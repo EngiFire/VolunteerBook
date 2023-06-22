@@ -6,14 +6,20 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.myapplication.Constant;
 import com.example.myapplication.LoginActivity;
 import com.example.myapplication.R;
+import com.example.myapplication.models.ApplicationEvent;
 import com.example.myapplication.models.Event;
+import com.example.myapplication.models.User;
 import com.example.myapplication.screens.MainActivity;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
@@ -23,11 +29,20 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class ShowOrganizerActivity extends AppCompatActivity {
 
-    private TextView tvName, tvData, tvResponsible, tvQuantity, tvPlace, tvDirection, tvDescription;
-    private CheckBox cbComplete;
-    private DatabaseReference mDataBase;
+    private TextView tvName, tvData, tvResponsible, tvQuantity, tvPlace, tvDirection, tvDescription, tvExpOrgComp, expUsName, expUsEmail, expUsData, tvPartName, tvPartEmail, tvPartData;
+    private CheckBox cbComplete, chbAddPoint;
+    private DatabaseReference mDataBase, pDataBase, aeDataBase, cDataBase;
+    private ArrayAdapter<String> adapter;
+    private List<String> listData;
+    private List<ApplicationEvent> listTemp;
+    private ListView lvParticipant;
+    private Spinner spAddPoint;
+    private String userId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,6 +51,16 @@ public class ShowOrganizerActivity extends AppCompatActivity {
 
         init();
         getIntentMain();
+
+        getDataFromDB();
+        setOnClickItem();
+
+        ArrayAdapter<?> adPoint =
+                ArrayAdapter.createFromResource(this, R.array.point,
+                        android.R.layout.simple_spinner_item);
+        adPoint.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        spAddPoint.setAdapter(adPoint);
     }
 
     private void init(){
@@ -47,7 +72,26 @@ public class ShowOrganizerActivity extends AppCompatActivity {
         tvPlace = findViewById(R.id.tvEventPlaceOrg);
         tvDescription = findViewById(R.id.tvEventDescriptionOrg);
         cbComplete = findViewById(R.id.cbComplete);
-        mDataBase = FirebaseDatabase.getInstance().getReference();
+
+        tvExpOrgComp = findViewById(R.id.tvExpOrgComp);
+        expUsName = findViewById(R.id.expUsName);
+        expUsEmail = findViewById(R.id.expUsEmail);
+        expUsData = findViewById(R.id.expUsData);
+        spAddPoint = findViewById(R.id.spAddPoint);
+        tvPartName = findViewById(R.id.tvPartName);
+        tvPartEmail = findViewById(R.id.tvPartEmail);
+        tvPartData = findViewById(R.id.tvPartData);
+        chbAddPoint = findViewById(R.id.chbAddPoint);
+
+        Intent i = getIntent();
+        String eventName = i.getStringExtra(Constant.EVENT_ID);
+        mDataBase = FirebaseDatabase.getInstance().getReference("ApplicationEvent").child(eventName);
+
+        lvParticipant = findViewById(R.id.lvParticipant);
+        listData = new ArrayList<>();
+        listTemp = new ArrayList<>();
+        adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, listData);
+        lvParticipant.setAdapter(adapter);
     }
 
     private void getIntentMain(){
@@ -77,136 +121,167 @@ public class ShowOrganizerActivity extends AppCompatActivity {
         }
     }
 
-    public void checkBoxCompleteEvent(View view){
-        if(cbComplete.isChecked()){
+    private void getDataFromDB() {
+        ValueEventListener vListener = new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                if (listData.size() > 0) listData.clear();
+                if (listTemp.size() > 0) listTemp.clear();
+
+                for (DataSnapshot ds : dataSnapshot.getChildren()) {
+                    ApplicationEvent apEvent = ds.getValue(ApplicationEvent.class);
+                    assert apEvent != null;
+                    if (apEvent.status.equals("Одобрена")) {
+                        listData.add(apEvent.userSecName + " " + apEvent.userName);
+                        //Log.d("listTemp", event.toString());
+                        listTemp.add(apEvent);
+                    }
+                }
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        };
+        mDataBase.addValueEventListener(vListener);
+    }
+
+    private void setOnClickItem() {
+        lvParticipant.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                ApplicationEvent apEvent = listTemp.get(position);
+
+                userId = apEvent.userId;
+
+                showSigned();
+
+                DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("User").child(apEvent.userId);
+                ref.addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                        String name = dataSnapshot.child("name").getValue(String.class);
+                        String secName = dataSnapshot.child("secName").getValue(String.class);
+                        String data = dataSnapshot.child("data").getValue(String.class);
+                        String email = dataSnapshot.child("email").getValue(String.class);
+
+                        tvPartName.setText(secName + " " + name);
+                        tvPartEmail.setText(email);
+                        tvPartData.setText(data);
+                    }
+
+                    @Override
+                    public void onCancelled(@NonNull DatabaseError databaseError) {
+                    }
+                });
+            }
+        });
+    }
+
+    public void chBoxAddPoint(View view) {
+        if (chbAddPoint.isChecked()) {
+
+            int spinner_pos = spAddPoint.getSelectedItemPosition();
+            String[] size_values = getResources().getStringArray(R.array.point);
+            int point = Integer.valueOf(size_values[spinner_pos]);
 
             Intent i = getIntent();
-            String eventId = i.getStringExtra(Constant.EVENT_NAME);
-            String eventPoint = i.getStringExtra(Constant.EVENT_POINT);
+            String eventId = i.getStringExtra(Constant.EVENT_ID);
+
+            aeDataBase = FirebaseDatabase.getInstance().getReference().child("ApplicationEvent").child(eventId).child(userId).child("status");
+            aeDataBase.setValue("Завершена");
+
+            pDataBase = FirebaseDatabase.getInstance().getReference().child("User").child(userId).child("point");
+
+            pDataBase.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    Integer lastPoint = dataSnapshot.getValue(Integer.class);
+
+                    Integer nowPoint = lastPoint + Integer.valueOf(point);
+
+                    pDataBase.setValue(nowPoint);
+
+                    Toast.makeText(getApplicationContext(), "Баллы начислены", Toast.LENGTH_SHORT).show();
+
+                    notSigned();
+
+                    //chbAddPoint.setChecked(false);
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+                }
+            });
 
 
-
-//            mDataBase.child("ApplicationEvent").child(eventId).addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                    for(DataSnapshot ds : dataSnapshot.getChildren()){
-//
-//                        Event event = ds.getValue(Event.class);
-//                        assert event != null;
-//                        if(event.responsible.equals(uid)){
-//                            listEventData.add(event.name);
-//                            //Log.d("listTemp", event.toString());
-//                            listEventTemp.add(event);
-//                        }
-//                    }
-//                }
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//
-//                }
-//            });
-
-            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-            Query query = reference.child("ApplicationEvent").child(eventId);
-
-//            query.addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                    for(DataSnapshot ds : dataSnapshot.getChildren()){
-//                        if(){
-//
-//                        }
-//                    }
-//                }
-//
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//                }
-//            });
-
-
-
-//            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-//            Query query = reference.child("ApplicationEvent").child(eventId).orderByChild("status").equalTo("Одобрена");
-//            query.addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                    if(dataSnapshot.getChildrenCount()>0) {
-//                        //username found
-//                        for(DataSnapshot ds : dataSnapshot.getChildren()){
-//
-//
-//                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference();
-//                            Query query = reference.child("ApplicationEvent").child(eventId).orderByChild("status").equalTo("Одобрена");
-//                            query.addListenerForSingleValueEvent(new ValueEventListener() {
-//                                @Override
-//                                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                                    if(dataSnapshot.getChildrenCount()>0) {
-//                                        //username found
-//                                        for(DataSnapshot ds : dataSnapshot.getChildren()){
-//
-//                                            Event event = ds.getValue(Event.class);
-//                                            assert event != null;
-//                                            if(event.responsible.equals(uid)){
-//                                                listEventData.add(event.name);
-//                                                //Log.d("listTemp", event.toString());
-//                                                listEventTemp.add(event);
-//                                            }
-//                                        }
-//                                    } else{
-//                                        // username not found
-//                                        Toast.makeText(getApplicationContext(), "Нет участников", Toast.LENGTH_SHORT).show();
-//                                    }
-//                                }
-//                                @Override
-//                                public void onCancelled(DatabaseError databaseError) {
-//                                }
-//                            });
-//
-//
-//                        }
-//                    } else{
-//                        // username not found
-//                        Toast.makeText(getApplicationContext(), "Нет участников", Toast.LENGTH_SHORT).show();
-//                    }
-//                }
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//                }
-//            });
-
-
-
-
-            /////////////////////////////////
-
-
-
-
-//            mDataBase.child("Event").child(eventId).addListenerForSingleValueEvent(new ValueEventListener() {
-//                @Override
-//                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-//                    for(DataSnapshot userSnapshot : dataSnapshot.getChildren()){
-//                        userSnapshot.getRef().removeValue();
-//                    }
-//                }
-//                @Override
-//                public void onCancelled(DatabaseError databaseError) {
-//
-//                }
-//            });
-//
-//            Toast.makeText(getApplicationContext(), "Завершено", Toast.LENGTH_SHORT).show();
-//
-//            Intent intent = new Intent(this, OrganizerActivity.class);
-//            startActivity(intent);
-//            finish();
         }
     }
+    public void checkBoxCompleteEvent(View view){
+        if (cbComplete.isChecked()) {
+
+            Intent i = getIntent();
+            String eventName = i.getStringExtra(Constant.EVENT_NAME);
+
+            cDataBase = FirebaseDatabase.getInstance().getReference();
+
+            cDataBase.child("Event").orderByChild("name").equalTo(eventName).addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for (DataSnapshot eventSnapshot : dataSnapshot.getChildren()) {
+                        eventSnapshot.getRef().removeValue();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+
+            Toast.makeText(getApplicationContext(), "Завершено", Toast.LENGTH_SHORT).show();
+
+            Intent intent = new Intent(this, OrganizerActivity.class);
+            startActivity(intent);
+            finish();
+        }
+
+    }
+
 
     public void onClickShowExit (View view){
         Intent intent = new Intent(this, OrganizerActivity.class);
         startActivity(intent);
         finish();
+    }
+
+    private void showSigned() {
+        lvParticipant.setVisibility(View.GONE);
+        cbComplete.setVisibility(View.GONE);
+
+        expUsName.setVisibility(View.VISIBLE);
+        expUsEmail.setVisibility(View.VISIBLE);
+        expUsData.setVisibility(View.VISIBLE);
+        spAddPoint.setVisibility(View.VISIBLE);
+        tvPartName.setVisibility(View.VISIBLE);
+        tvPartEmail.setVisibility(View.VISIBLE);
+        tvPartData.setVisibility(View.VISIBLE);
+        chbAddPoint.setVisibility(View.VISIBLE);
+    }
+
+    private void notSigned() {
+        lvParticipant.setVisibility(View.VISIBLE);
+        cbComplete.setVisibility(View.VISIBLE);
+
+        expUsName.setVisibility(View.GONE);
+        expUsEmail.setVisibility(View.GONE);
+        expUsData.setVisibility(View.GONE);
+        spAddPoint.setVisibility(View.GONE);
+        tvPartName.setVisibility(View.GONE);
+        tvPartEmail.setVisibility(View.GONE);
+        tvPartData.setVisibility(View.GONE);
+        chbAddPoint.setVisibility(View.GONE);
     }
 }

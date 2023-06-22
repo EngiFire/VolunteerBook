@@ -95,7 +95,6 @@ public class OrganizerActivity extends AppCompatActivity {
                 i.putExtra(Constant.EVENT_DIRECTION, event.direction);
                 i.putExtra(Constant.EVENT_QUANTITY, event.quantity);
                 i.putExtra(Constant.EVENT_PARTICIPANT, event.participant);
-                i.putExtra(Constant.EVENT_POINT, event.point);
                 i.putExtra(Constant.EVENT_DATA, event.data);
                 i.putExtra(Constant.EVENT_PLACE, event.place);
                 i.putExtra(Constant.EVENT_RESPONSIBLE, event.responsible);

@@ -24,7 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class ShowEventActivity extends AppCompatActivity {
 
-    private TextView tvName, tvData, tvResponsible, tvQuantity, tvPlace, tvDirection, tvDescription, tvEventPoint;
+    private TextView tvName, tvData, tvResponsible, tvQuantity, tvPlace, tvDirection, tvDescription;
     private CheckBox checkBox;
     private DatabaseReference mDataBase;
 
@@ -45,7 +45,6 @@ public class ShowEventActivity extends AppCompatActivity {
         tvQuantity = findViewById(R.id.tvEventQuantity);
         tvPlace = findViewById(R.id.tvEventPlace);
         tvDescription = findViewById(R.id.tvEventDescription);
-        tvEventPoint = findViewById(R.id.tvEventPoint);
         checkBox = findViewById(R.id.checkBox);
         mDataBase = FirebaseDatabase.getInstance().getReference();
     }
@@ -59,7 +58,6 @@ public class ShowEventActivity extends AppCompatActivity {
             tvPlace.setText("Место проведения мероприятия:\n" + i.getStringExtra(Constant.EVENT_PLACE));
             tvDirection.setText("Направление мероприятия:\n" + i.getStringExtra(Constant.EVENT_DIRECTION));
             tvDescription.setText("Описание мероприятия:\n" + i.getStringExtra(Constant.EVENT_DESCRIPTION));
-            tvEventPoint.setText("Баллы за мероприятие:\n" + i.getIntExtra(Constant.EVENT_POINT, 0));
 
             DatabaseReference ref = FirebaseDatabase.getInstance().getReference().child("User").child(i.getStringExtra(Constant.EVENT_RESPONSIBLE));
             ref.addValueEventListener(new ValueEventListener() {

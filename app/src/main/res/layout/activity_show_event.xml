@@ -102,7 +102,7 @@
         app:layout_constraintEnd_toEndOf="@+id/tvEventResponsible"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/tvEventResponsible"
-        app:layout_constraintTop_toBottomOf="@+id/tvEventPoint" />
+        app:layout_constraintTop_toBottomOf="@+id/tvEventResponsible" />
 
     <TextView
         android:id="@+id/tvEventResponsible"
@@ -155,15 +155,4 @@
         </LinearLayout>
     </ScrollView>
 
-    <TextView
-        android:id="@+id/tvEventPoint"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:background="@drawable/border_filled"
-        android:padding="5dp"
-        android:text="Text"
-        app:layout_constraintEnd_toEndOf="@+id/tvEventResponsible"
-        app:layout_constraintStart_toStartOf="@+id/tvEventResponsible"
-        app:layout_constraintTop_toBottomOf="@+id/tvEventResponsible" />
 </androidx.constraintlayout.widget.ConstraintLayout>
